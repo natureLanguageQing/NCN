@@ -13,7 +13,9 @@ from typing import Union, List, Optional, Dict
 import numpy as np
 from tensorflow import keras
 
-from processors import ClassificationProcessor, LabelingProcessor
+import macros
+from processors.classification_processor import ClassificationProcessor
+from processors.labeling_processor import LabelingProcessor
 from processors.base_processor import BaseProcessor
 
 L = keras.layers
@@ -66,9 +68,9 @@ class Embedding(object):
         self.embedding_size = embedding_size
 
         if processor is None:
-            if task == CLASSIFICATION:
+            if task == macros.TaskType.CLASSIFICATION:
                 self.processor = ClassificationProcessor()
-            elif task == LABELING:
+            elif task == macros.TaskType.LABELING:
                 self.processor = LabelingProcessor()
             else:
                 raise ValueError()

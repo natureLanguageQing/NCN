@@ -21,13 +21,17 @@ L = keras.layers
 
 
 class WordEmbedding(Embedding):
-    """Pre-trained word2vec embedding"""
+    """
+    预训练的词向量模型
+    Pre-trained word2vec embedding"""
 
     def info(self):
         info = super(WordEmbedding, self).info()
         info['config'] = {
+            # 词向量文件地址
             'w2v_path': self.w2v_path,
             'w2v_kwargs': self.w2v_kwargs,
+            # 词向量序列长度
             'sequence_length': self.sequence_length
         }
         return info
