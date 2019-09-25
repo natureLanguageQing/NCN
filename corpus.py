@@ -47,6 +47,7 @@ class DataReader(object):
 
 class ChineseDailyNerCorpus(object):
     """
+    中文日报新新语料库
     Chinese Daily New New Corpus
     https://github.com/zjy-ucas/ChineseNER/
     """

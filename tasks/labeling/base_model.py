@@ -32,7 +32,9 @@ class BaseLabelingModel(BaseModel):
                          join_chunk=' ',
                          debug_info=False,
                          predict_kwargs: Dict = None):
-        """Gets entities from sequence.
+        """
+        从序列中获取实体。
+        Gets entities from sequence.
 
         Args:
             x_data: The input data, as a Numpy array (or list of Numpy arrays if the model has multiple inputs).
@@ -119,9 +121,3 @@ if __name__ == "__main__":
     train_x, train_y = train_x[:5120], train_y[:5120]
 
     model = load_model('/Users/nlqing/Desktop/blstm_model')
-    # model.build_model(train_x[:100], train_y[:100])
-
-    # model.fit(train_x[:1000], train_y[:1000], epochs=10)
-
-    # model.evaluate(train_x[:20], train_y[:20])
-    print("Hello world")
