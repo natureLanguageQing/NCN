@@ -1,0 +1,5 @@
+numpy
+seqeval
+scikit-learn
+tensorflow
+keras_gpt_2
