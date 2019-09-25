@@ -12,9 +12,10 @@ import logging
 import random
 from typing import Dict, Any, Tuple
 
-from tasks.base_model import BaseModel
 from seqeval.metrics import classification_report
 from seqeval.metrics.sequence_labeling import get_entities
+
+from tasks.base_model import BaseModel
 
 
 class BaseLabelingModel(BaseModel):

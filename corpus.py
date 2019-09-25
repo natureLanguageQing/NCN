@@ -6,7 +6,6 @@ from typing import Tuple, List
 
 import pandas as pd
 from NCN import macros as k
-from NCN import utils
 from tensorflow.python.keras.utils import get_file
 
 CORPUS_PATH = os.path.join(k.DATA_PATH, 'corpus')

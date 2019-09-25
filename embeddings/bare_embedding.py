@@ -9,9 +9,10 @@
 import logging
 from typing import Union, Optional
 
+from tensorflow import keras
+
 from embeddings.base_embedding import Embedding
 from processors.base_processor import BaseProcessor
-from tensorflow import keras
 
 L = keras.layers
 

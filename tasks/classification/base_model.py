@@ -11,10 +11,10 @@ import logging
 import random
 from typing import Dict, Any, Tuple, Optional, List
 
+from sklearn import metrics
 
 from embeddings.base_embedding import Embedding
 from tasks.base_model import BaseModel
-from sklearn import metrics
 
 
 class BaseClassificationModel(BaseModel):

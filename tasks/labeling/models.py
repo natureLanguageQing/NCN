@@ -10,11 +10,12 @@
 import logging
 from typing import Dict, Any
 
+from tensorflow import keras
+
 from layers import L
 from layers.crf import CRF
 from tasks.labeling.base_model import BaseLabelingModel
 from utils import custom_objects
-from tensorflow import keras
 
 custom_objects['CRF'] = CRF
 

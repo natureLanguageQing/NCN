@@ -14,12 +14,12 @@ import logging
 import operator
 from typing import List, Dict, Optional
 
-
 import numpy as np
-from NCN import utils
-from processors.base_processor import BaseProcessor
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from tensorflow.python.keras.utils import to_categorical
+
+import utils
+from processors.base_processor import BaseProcessor
 
 
 class LabelingProcessor(BaseProcessor):
@@ -29,7 +29,7 @@ class LabelingProcessor(BaseProcessor):
 
     def info(self):
         info = super(LabelingProcessor, self).info()
-        info['task'] = LABELING
+        info['task'] = utils.LABELING
         return info
 
     def _build_label_dict(self,

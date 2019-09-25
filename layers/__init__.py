@@ -8,8 +8,9 @@
 # time: 2019-05-23 14:05
 
 from tensorflow.python import keras
-from layers.non_masking_layer import NonMaskingLayer
+
 from layers.att_wgt_avg_layer import AttentionWeightedAverageLayer
+from layers.non_masking_layer import NonMaskingLayer
 
 L = keras.layers
 

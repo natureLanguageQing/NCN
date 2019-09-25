@@ -11,9 +11,10 @@ import pydoc
 from typing import Union, List, Optional, Dict
 
 import numpy as np
+from tensorflow import keras
+
 from processors import ClassificationProcessor, LabelingProcessor
 from processors.base_processor import BaseProcessor
-from tensorflow import keras
 
 L = keras.layers
 

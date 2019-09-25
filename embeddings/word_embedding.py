@@ -11,10 +11,11 @@ import logging
 from typing import Union, Optional, Dict, Any, List, Tuple
 
 import numpy as np
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
 from gensim.models import KeyedVectors
 from tensorflow import keras
+
+from embeddings.base_embedding import Embedding
+from processors.base_processor import BaseProcessor
 
 L = keras.layers
 

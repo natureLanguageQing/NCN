@@ -9,11 +9,11 @@
 
 from typing import Dict, Any
 
+from keras_self_attention import SeqSelfAttention
+from tensorflow import keras
 
 from layers import L
 from tasks.labeling.base_model import BaseLabelingModel
-from keras_self_attention import SeqSelfAttention
-from tensorflow import keras
 
 
 class BLSTMAttentionModel(BaseLabelingModel):

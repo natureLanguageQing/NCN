@@ -13,7 +13,6 @@ import operator
 from typing import List, Optional, Union, Dict, Any
 
 import numpy as np
-from NCN import utils
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 
 

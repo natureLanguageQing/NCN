@@ -8,11 +8,11 @@ import time
 from typing import List, Optional, Dict
 
 import tensorflow as tf
-from NCN import custom_objects
+from tensorflow.python import keras, saved_model
+
 from embeddings.base_embedding import Embedding
 from processors.base_processor import BaseProcessor
 from tasks.base_model import BaseModel
-from tensorflow.python import keras, saved_model
 
 
 def unison_shuffled_copies(a, b):

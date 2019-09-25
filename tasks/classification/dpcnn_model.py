@@ -2,6 +2,7 @@ from math import log2, floor
 from typing import Dict, Any
 
 import tensorflow as tf
+
 from layers import L
 from layers.kmax_pool_layer import KMaxPoolingLayer
 from tasks.classification.base_model import BaseClassificationModel
@@ -72,7 +73,7 @@ def resnet_block(inputs, filters: int, kernel_size: int = 3,
                  pool_type: str = 'max', sorted: bool = True, stage: int = 1):  # noqa: A002
     tensor_pool = downsample(inputs, pool_type=pool_type, sorted=sorted, stage=stage)
     tensor_out = conv_block(tensor_pool, filters=filters, kernel_size=kernel_size,
-                                 activation=activation, shortcut=shortcut)
+                            activation=activation, shortcut=shortcut)
     return tensor_out
 
 
@@ -161,7 +162,7 @@ class DPCNN_Model(BaseClassificationModel):
             raise ValueError('`sequence_length` should be explicitly assigned, but it is `None`.')
         for i in range(floor(log2(seq_len)) - 2):
             tensor_out = resnet_block(tensor_out, stage=i + 1,
-                                           **config['resnet_block'])
+                                      **config['resnet_block'])
         for layer in layers_main:
             tensor_out = layer(tensor_out)
 

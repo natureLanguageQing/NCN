@@ -1,11 +1,10 @@
 from typing import List, Optional
 
-
 import numpy as np
-from NCN import utils
-from processors.base_processor import BaseProcessor
 from sklearn.preprocessing import MultiLabelBinarizer
 from tensorflow.python.keras.utils import to_categorical
+
+from processors.base_processor import BaseProcessor
 
 
 class ClassificationProcessor(BaseProcessor):

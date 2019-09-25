@@ -16,10 +16,10 @@ from typing import Dict, Any, List, Optional, Union, Tuple
 
 import numpy as np
 import tensorflow as tf
-from NCN import utils
+from tensorflow import keras
+
 from embeddings import BareEmbedding
 from embeddings.base_embedding import Embedding
-from tensorflow import keras
 
 L = keras.layers
 

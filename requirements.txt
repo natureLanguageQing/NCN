@@ -1,5 +1,7 @@
+gensim
 numpy
 seqeval
 scikit-learn
 tensorflow
 keras_gpt_2
+keras_bert

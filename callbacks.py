@@ -3,13 +3,14 @@
 # author: nlqing
 # contact: ygq624576166@163.com
 
+from seqeval import metrics as seq_metrics
+from sklearn import metrics
+from tensorflow.python import keras
+
 # file: callbacks.py
 # time: 2019-05-22 15:00
 import macros
 from tasks.base_model import BaseModel
-from seqeval import metrics as seq_metrics
-from sklearn import metrics
-from tensorflow.python import keras
 
 
 class EvalCallBack(keras.callbacks.Callback):

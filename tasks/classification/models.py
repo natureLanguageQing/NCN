@@ -11,6 +11,7 @@ import logging
 from typing import Dict, Any
 
 import tensorflow as tf
+
 from layers import L, AttentionWeightedAverageLayer
 from layers.kmax_pool_layer import KMaxPoolingLayer
 from tasks.classification.base_model import BaseClassificationModel
@@ -674,7 +675,6 @@ if __name__ == "__main__":
     from corpus import SMP2018ECDTCorpus
 
     x, y = SMP2018ECDTCorpus.load_data()
-
 
     from processors.classification_processor import ClassificationProcessor
     from embeddings import BareEmbedding

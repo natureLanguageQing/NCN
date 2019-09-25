@@ -23,7 +23,7 @@ import keras_bert
 
 
 class BERTEmbedding(Embedding):
-    """Pre-trained BERT embedding"""
+    """预训练的BERT嵌入模型 Pre-trained BERT embedding"""
 
     def info(self):
         info = super(BERTEmbedding, self).info()

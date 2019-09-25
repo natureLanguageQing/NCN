@@ -20,4 +20,3 @@ from macros import TaskType
 custom_objects = keras_bert.get_custom_objects()
 CLASSIFICATION = TaskType.CLASSIFICATION
 LABELING = TaskType.LABELING
-

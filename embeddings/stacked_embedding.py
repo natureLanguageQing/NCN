@@ -9,13 +9,13 @@
 
 from typing import Union, Optional, Tuple, List, Dict
 
-
 import numpy as np
 import tensorflow as tf
+from tensorflow.python import keras
+
 from embeddings.base_embedding import Embedding
 from layers import L
 from processors.base_processor import BaseProcessor
-from tensorflow.python import keras
 
 
 # Todo: A better name for this class

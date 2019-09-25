@@ -9,10 +9,11 @@
 from typing import Union, Optional, Tuple, List
 
 import numpy as np
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
 from tensorflow import keras
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
+
+from embeddings.base_embedding import Embedding
+from processors.base_processor import BaseProcessor
 
 L = keras.layers
 
