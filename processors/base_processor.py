@@ -1,19 +1,23 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: base_processor.py
-# time: 2019-9-25 17:14:26
+# time: 2019-05-21 11:27
 
-import collections
+import os
+import json
 import logging
+import pathlib
 import operator
+import collections
 from typing import List, Optional, Union, Dict, Any
-
-import numpy as np
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
+
+from NCN import utils
+import numpy as np
 
 
 class BaseProcessor(object):

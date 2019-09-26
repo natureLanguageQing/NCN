@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: models.py
 # time: 2019-05-20 11:13
@@ -12,10 +12,11 @@ from typing import Dict, Any
 
 from tensorflow import keras
 
-from layers import L
-from layers.crf import CRF
-from tasks.labeling.base_model import BaseLabelingModel
-from utils import custom_objects
+from NCN.tasks.labeling.base_model import BaseLabelingModel
+from NCN.layers import L
+from NCN.layers.crf import CRF
+
+from NCN.utils import custom_objects
 
 custom_objects['CRF'] = CRF
 
@@ -286,7 +287,7 @@ class CNN_LSTM_Model(BaseLabelingModel):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    from corpus import ChineseDailyNerCorpus
+    from NCN.corpus import ChineseDailyNerCorpus
 
     valid_x, valid_y = ChineseDailyNerCorpus.load_data('train')
 

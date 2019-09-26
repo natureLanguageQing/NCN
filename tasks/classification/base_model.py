@@ -1,23 +1,24 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: base_classification_model.py
 # time: 2019-05-22 11:23
 
-import logging
 import random
+import logging
+import NCN
 from typing import Dict, Any, Tuple, Optional, List
+from NCN.tasks.base_model import BaseModel, BareEmbedding
 
+from NCN.embeddings.base_embedding import Embedding
 from sklearn import metrics
-
-from embeddings.base_embedding import Embedding
-from tasks.base_model import BaseModel
 
 
 class BaseClassificationModel(BaseModel):
+
     __task__ = 'classification'
 
     def __init__(self,
@@ -64,7 +65,7 @@ class BaseClassificationModel(BaseModel):
         Returns:
             array(s) of predictions.
         """
-        with utils.custom_object_scope():
+        with NCN.utils.custom_object_scope():
             tensor = self.embedding.process_x_dataset(x_data)
             pred = self.tf_model.predict(tensor, batch_size=batch_size)
             if self.embedding.processor.multi_label:
@@ -131,7 +132,7 @@ class BaseClassificationModel(BaseModel):
         """
         if predict_kwargs is None:
             predict_kwargs = {}
-        with utils.custom_object_scope():
+        with NCN.utils.custom_object_scope():
             tensor = self.embedding.process_x_dataset(x_data)
             pred = self.tf_model.predict(tensor, batch_size=batch_size, **predict_kwargs)
             new_results = []

@@ -1,25 +1,26 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: __init__.py
 # time: 2019-05-22 12:40
 
 
-from tasks.classification.dpcnn_model import DPCNN_Model
-from tasks.classification.models import AVCNN_Model
-from tasks.classification.models import AVRNN_Model
-from tasks.classification.models import BiGRU_Model
-from tasks.classification.models import BiLSTM_Model
-from tasks.classification.models import CNN_GRU_Model
-from tasks.classification.models import CNN_LSTM_Model
-from tasks.classification.models import CNN_Model
-from tasks.classification.models import Dropout_AVRNN_Model
-from tasks.classification.models import Dropout_BiGRU_Model
-from tasks.classification.models import KMax_CNN_Model
-from tasks.classification.models import R_CNN_Model
+from NCN.tasks.classification.models import BiLSTM_Model
+from NCN.tasks.classification.models import BiGRU_Model
+from NCN.tasks.classification.models import CNN_Model
+from NCN.tasks.classification.models import CNN_LSTM_Model
+from NCN.tasks.classification.models import CNN_GRU_Model
+from NCN.tasks.classification.models import AVCNN_Model
+from NCN.tasks.classification.models import KMax_CNN_Model
+from NCN.tasks.classification.models import R_CNN_Model
+from NCN.tasks.classification.models import AVRNN_Model
+from NCN.tasks.classification.models import Dropout_BiGRU_Model
+from NCN.tasks.classification.models import Dropout_AVRNN_Model
+from NCN.tasks.classification.dpcnn_model import DPCNN_Model
+
 
 BLSTMModel = BiLSTM_Model
 BGRUModel = BiGRU_Model

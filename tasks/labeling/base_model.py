@@ -1,21 +1,21 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: base_model.py
 # time: 2019-05-20 13:07
 
 
-import logging
-import random
 from typing import Dict, Any, Tuple
 
+import random
+import logging
 from seqeval.metrics import classification_report
 from seqeval.metrics.sequence_labeling import get_entities
 
-from tasks.base_model import BaseModel
+from NCN.tasks.base_model import BaseModel
 
 
 class BaseLabelingModel(BaseModel):
@@ -33,9 +33,7 @@ class BaseLabelingModel(BaseModel):
                          join_chunk=' ',
                          debug_info=False,
                          predict_kwargs: Dict = None):
-        """
-        从序列中获取实体。
-        Gets entities from sequence.
+        """Gets entities from sequence.
 
         Args:
             x_data: The input data, as a Numpy array (or list of Numpy arrays if the model has multiple inputs).
@@ -113,12 +111,19 @@ class BaseLabelingModel(BaseModel):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    from corpus import ChineseDailyNerCorpus
-    from utils import load_model
+    from NCN.tasks.labeling import BiLSTM_Model
+    from NCN.corpus import ChineseDailyNerCorpus
+    from NCN.utils import load_model
 
     train_x, train_y = ChineseDailyNerCorpus.load_data('train', shuffle=False)
     valid_x, valid_y = ChineseDailyNerCorpus.load_data('valid')
 
     train_x, train_y = train_x[:5120], train_y[:5120]
 
-    model = load_model('/Users/nlqing/Desktop/blstm_model')
+    model = load_model('/Users/brikerman/Desktop/blstm_model')
+    # model.build_model(train_x[:100], train_y[:100])
+
+    # model.fit(train_x[:1000], train_y[:1000], epochs=10)
+
+    # model.evaluate(train_x[:20], train_y[:20])
+    print("Hello world")

@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-# 嵌入层无需预训练，训练模型时训练嵌入层
+
 
 # file: stacked_embedding.py
 # time: 2019-05-23 09:18
@@ -13,9 +13,10 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.python import keras
 
-from embeddings.base_embedding import Embedding
-from layers import L
-from processors.base_processor import BaseProcessor
+import NCN
+from NCN.embeddings.base_embedding import Embedding
+from NCN.processors.base_processor import BaseProcessor
+from NCN.layers import L
 
 
 # Todo: A better name for this class
@@ -45,7 +46,7 @@ class StackedEmbedding(Embedding):
             embeddings:
             processor:
         """
-        task = CLASSIFICATION
+        task = NCN.CLASSIFICATION
         if all(isinstance(embed.sequence_length, int) for embed in embeddings):
             sequence_length = [embed.sequence_length for embed in embeddings]
         else:

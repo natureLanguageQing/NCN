@@ -1,10 +1,12 @@
 from typing import List, Optional
 
 import numpy as np
-from sklearn.preprocessing import MultiLabelBinarizer
 from tensorflow.python.keras.utils import to_categorical
 
-from processors.base_processor import BaseProcessor
+import NCN
+from NCN import utils
+from NCN.processors.base_processor import BaseProcessor
+from sklearn.preprocessing import MultiLabelBinarizer
 
 
 class ClassificationProcessor(BaseProcessor):
@@ -19,7 +21,7 @@ class ClassificationProcessor(BaseProcessor):
 
     def info(self):
         info = super(ClassificationProcessor, self).info()
-        info['task'] = CLASSIFICATION
+        info['task'] = NCN.CLASSIFICATION
         info['multi_label'] = self.multi_label
         return info
 
@@ -85,7 +87,7 @@ class ClassificationProcessor(BaseProcessor):
 
 
 if __name__ == "__main__":
-    from corpus import SMP2018ECDTCorpus
+    from NCN.corpus import SMP2018ECDTCorpus
 
     x, y = SMP2018ECDTCorpus.load_data()
     p = ClassificationProcessor()

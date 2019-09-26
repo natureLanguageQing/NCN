@@ -1,13 +1,13 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: non_masking_layer.py
 # time: 2019-05-23 14:05
 
-
+import NCN
 from tensorflow.python.keras.layers import Layer
 
 
@@ -32,7 +32,8 @@ class NonMaskingLayer(Layer):
         return x
 
 
-custom_objects['NonMaskingLayer'] = NonMaskingLayer
+NCN.custom_objects['NonMaskingLayer'] = NonMaskingLayer
+
 
 if __name__ == "__main__":
     print("Hello world")

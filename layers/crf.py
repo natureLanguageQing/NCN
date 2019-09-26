@@ -1,11 +1,11 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-# 条件随机场
+
 
 # file: crf.py
-# time: 2019-9-25 17:28:02
+# time: 2019-06-28 14:33
 
 import tensorflow as tf
 

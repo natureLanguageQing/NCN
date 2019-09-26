@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-# author: nlqing
-# contact: ygq624576166@163.com
+# author: AlexWang
+# contact: ialexwwang@gmail.com
 
 # file: attention_weighted_average.py
-# time: 2019-9-25 17:28:21
+# time: 2019-06-25 16:35
 
-
+import NCN
 import tensorflow as tf
 from tensorflow.python import keras
 from tensorflow.python.keras import backend as K
@@ -16,9 +16,7 @@ InputSpec = L.InputSpec
 
 
 class KMaxPoolingLayer(L.Layer):
-    """
-    不经过预处理的嵌入层，训练嵌入层，同时训练模型K-max池化层，从序列(二维)中提取k-最高值的激活。
-TensorFlow后端。
+    '''
     K-max pooling layer that extracts the k-highest activation from a sequence (2nd dimension).
     TensorFlow backend.
     # Arguments
@@ -43,7 +41,7 @@ TensorFlow后端。
     # Output shape
         3D tensor with shape:
         `(batch_size, top-k-steps, features)`
-    """
+    '''
 
     def __init__(self, k=1, sorted=True, data_format='channels_last', **kwargs):  # noqa: A002
         super(KMaxPoolingLayer, self).__init__(**kwargs)
@@ -84,9 +82,10 @@ TensorFlow后端。
 KMaxPooling = KMaxPoolingLayer
 KMaxPoolLayer = KMaxPoolingLayer
 
-custom_objects['KMaxPoolingLayer'] = KMaxPoolingLayer
-custom_objects['KMaxPooling'] = KMaxPooling
-custom_objects['KMaxPoolLayer'] = KMaxPoolLayer
+NCN.custom_objects['KMaxPoolingLayer'] = KMaxPoolingLayer
+NCN.custom_objects['KMaxPooling'] = KMaxPooling
+NCN.custom_objects['KMaxPoolLayer'] = KMaxPoolLayer
 
 if __name__ == '__main__':
     print('Hello world, KMaxPoolLayer/KMaxPoolingLayer.')
+

@@ -1,16 +1,17 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
 
-from seqeval import metrics as seq_metrics
-from sklearn import metrics
-from tensorflow.python import keras
 
 # file: callbacks.py
 # time: 2019-05-22 15:00
-import macros
-from tasks.base_model import BaseModel
+
+from sklearn import metrics
+from NCN import macros
+from tensorflow.python import keras
+from NCN.tasks.base_model import BaseModel
+from seqeval import metrics as seq_metrics
 
 
 class EvalCallBack(keras.callbacks.Callback):
@@ -60,5 +61,5 @@ class EvalCallBack(keras.callbacks.Callback):
 
 if __name__ == "__main__":
     print("Hello world")
-    config_path = '/Users/nlqing/Desktop/python/NCN/tests/test-data/bert/bert_config.json'
-    check_point_path = '/Users/nlqing/Desktop/python/NCN/tests/test-data/bert/bert_model.ckpt'
+    config_path = '/Users/brikerman/Desktop/python/NCN/tests/test-data/bert/bert_config.json'
+    check_point_path = '/Users/brikerman/Desktop/python/NCN/tests/test-data/bert/bert_model.ckpt'

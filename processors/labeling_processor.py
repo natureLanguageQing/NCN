@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # version: 1.0
 # license: Apache Licence
@@ -18,8 +18,9 @@ import numpy as np
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from tensorflow.python.keras.utils import to_categorical
 
-import utils
-from processors.base_processor import BaseProcessor
+import NCN
+from NCN import utils
+from NCN.processors.base_processor import BaseProcessor
 
 
 class LabelingProcessor(BaseProcessor):
@@ -29,7 +30,7 @@ class LabelingProcessor(BaseProcessor):
 
     def info(self):
         info = super(LabelingProcessor, self).info()
-        info['task'] = utils.LABELING
+        info['task'] = NCN.LABELING
         return info
 
     def _build_label_dict(self,
@@ -116,7 +117,7 @@ class LabelingProcessor(BaseProcessor):
 
 
 if __name__ == "__main__":
-    from corpus import ChineseDailyNerCorpus
+    from NCN.corpus import ChineseDailyNerCorpus
 
     x, y = ChineseDailyNerCorpus.load_data()
     p = LabelingProcessor()
