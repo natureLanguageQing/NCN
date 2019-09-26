@@ -1,9 +1,11 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
 
+
 # file: numeric_feature_embedding.py
+# time: 2019-05-23 09:04
 
 
 from typing import Union, Optional, Tuple, List
@@ -12,8 +14,9 @@ import numpy as np
 from tensorflow import keras
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
+import NCN
+from NCN.embeddings.base_embedding import Embedding
+from NCN.processors.base_processor import BaseProcessor
 
 L = keras.layers
 
@@ -50,7 +53,7 @@ class NumericFeaturesEmbedding(Embedding):
             embedding_size: Dimension of the dense embedding.
         """
         # Dummy Type
-        task = CLASSIFICATION
+        task = NCN.CLASSIFICATION
         if embedding_size is None:
             embedding_size = feature_count * 8
         super(NumericFeaturesEmbedding, self).__init__(task=task,
@@ -92,7 +95,7 @@ class NumericFeaturesEmbedding(Embedding):
             vectorized feature tensor
         """
         if subset is not None:
-            numerized_samples = utils.get_list_subset(data, subset)
+            numerized_samples = NCN.utils.get_list_subset(data, subset)
         else:
             numerized_samples = data
 

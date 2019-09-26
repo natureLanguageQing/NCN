@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-import logging
 import os
-from typing import Tuple, List
-
+import logging
 import pandas as pd
 from NCN import macros as k
+from typing import Tuple, List
 from tensorflow.python.keras.utils import get_file
+from NCN import utils
 
 CORPUS_PATH = os.path.join(k.DATA_PATH, 'corpus')
 
@@ -46,7 +46,6 @@ class DataReader(object):
 
 class ChineseDailyNerCorpus(object):
     """
-    中文日报新新语料库
     Chinese Daily New New Corpus
     https://github.com/zjy-ucas/ChineseNER/
     """

@@ -1,17 +1,18 @@
 # encoding: utf-8
 """
-@author: nlqing
+@author: NLQing
 @contact: ygq624576166@163.com
-@
+
 
 @version: 1.0
+@license: Apache Licence
 @file: macros.py
+@time: 2019-05-17 11:38
 
 """
-import logging
 import os
+import logging
 from pathlib import Path
-
 import tensorflow as tf
 
 DATA_PATH = os.path.join(str(Path.home()), '.NCN')
@@ -30,7 +31,7 @@ class Config(object):
         self._use_cudnn_cell = False
 
         if tf.test.is_gpu_available(cuda_only=True):
-            logging.warning("CUDA GPU available, you can set `config.use_cudnn_cell = True` to use CuDNNCell. "
+            logging.warning("CUDA GPU available, you can set `NCN.config.use_cudnn_cell = True` to use CuDNNCell. "
                             "This will speed up the training, "
                             "but will make model incompatible with CPU device.")
 
@@ -41,7 +42,7 @@ class Config(object):
     @use_cudnn_cell.setter
     def use_cudnn_cell(self, value):
         self._use_cudnn_cell = value
-        from layers import L
+        from NCN.layers import L
         if value:
             if tf.test.is_gpu_available(cuda_only=True):
                 L.LSTM = tf.compat.v1.keras.layers.CuDNNLSTM

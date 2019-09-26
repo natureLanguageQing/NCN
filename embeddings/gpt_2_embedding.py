@@ -1,9 +1,11 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
 
+
 # file: base_embedding.py
+# time: 2019-05-26 17:40
 
 import os
 
@@ -13,10 +15,13 @@ import logging
 from typing import Union, Optional, Any, List, Tuple
 
 import numpy as np
+import NCN
 import pathlib
+import tensorflow as tf
 from tensorflow.python.keras.utils import get_file
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
+from NCN.layers import NonMaskingLayer, L
+from NCN.embeddings.base_embedding import Embedding
+from NCN.processors.base_processor import BaseProcessor
 import keras_gpt_2 as gpt2
 
 
@@ -194,7 +199,7 @@ class GPT2Embedding(Embedding):
         Returns:
             GPT-2 model folder
         """
-        model_folder: pathlib.Path = pathlib.Path(os.path.join(macros.DATA_PATH,
+        model_folder: pathlib.Path = pathlib.Path(os.path.join(NCN.macros.DATA_PATH,
                                                                'datasets',
                                                                f'gpt2-{model_name}'))
         model_folder.mkdir(exist_ok=True, parents=True)
@@ -204,7 +209,7 @@ class GPT2Embedding(Embedding):
             url = "https://storage.googleapis.com/gpt-2/models/" + model_name + "/" + filename
             get_file(os.path.join(f'gpt2-{model_name}', filename),
                      url,
-                     cache_dir=macros.DATA_PATH)
+                     cache_dir=NCN.macros.DATA_PATH)
         return str(model_folder)
 
 
@@ -214,11 +219,11 @@ if __name__ == "__main__":
     # bert_model_path = os.path.join(utils.get_project_path(), 'tests/test-data/bert')
     model_folder = GPT2Embedding.load_data('117M')
     print(model_folder)
-    b = GPT2Embedding(task=CLASSIFICATION,
+    b = GPT2Embedding(task=NCN.CLASSIFICATION,
                       model_folder=model_folder,
                       sequence_length=12)
 
-    # from corpus import SMP2018ECDTCorpus
+    # from NCN.corpus import SMP2018ECDTCorpus
 
     # test_x, test_y = SMP2018ECDTCorpus.load_data('valid')
 

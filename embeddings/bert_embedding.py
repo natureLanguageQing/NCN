@@ -1,9 +1,11 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
 
+
 # file: base_embedding.py
+# time: 2019-05-25 17:40
 
 import os
 
@@ -14,16 +16,16 @@ import logging
 from typing import Union, Optional, Any, List, Tuple
 
 import numpy as np
-
+import NCN
 import tensorflow as tf
-from layers import NonMaskingLayer
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
+from NCN.layers import NonMaskingLayer
+from NCN.embeddings.base_embedding import Embedding
+from NCN.processors.base_processor import BaseProcessor
 import keras_bert
 
 
 class BERTEmbedding(Embedding):
-    """预训练的BERT嵌入模型 Pre-trained BERT embedding"""
+    """Pre-trained BERT embedding"""
 
     def info(self):
         info = super(BERTEmbedding, self).info()
@@ -193,11 +195,11 @@ if __name__ == "__main__":
 
     # bert_model_path = os.path.join(utils.get_project_path(), 'tests/test-data/bert')
 
-    b = BERTEmbedding(task=CLASSIFICATION,
-                      model_folder='/Users/nlqing/.NCN/embedding/bert/chinese_L-12_H-768_A-12',
+    b = BERTEmbedding(task=NCN.CLASSIFICATION,
+                      model_folder='/Users/brikerman/.NCN/embedding/bert/chinese_L-12_H-768_A-12',
                       sequence_length=12)
 
-    from corpus import SMP2018ECDTCorpus
+    from NCN.corpus import SMP2018ECDTCorpus
 
     test_x, test_y = SMP2018ECDTCorpus.load_data('valid')
 

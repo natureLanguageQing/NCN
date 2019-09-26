@@ -1,19 +1,21 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: experimental.py
 # time: 2019-05-22 19:35
 
 from typing import Dict, Any
 
-from keras_self_attention import SeqSelfAttention
 from tensorflow import keras
 
-from layers import L
-from tasks.labeling.base_model import BaseLabelingModel
+import NCN
+from NCN.tasks.labeling.base_model import BaseLabelingModel
+from NCN.layers import L
+
+from keras_self_attention import SeqSelfAttention
 
 
 class BLSTMAttentionModel(BaseLabelingModel):
@@ -73,7 +75,7 @@ class BLSTMAttentionModel(BaseLabelingModel):
 
 
 # Register custom layer
-custom_objects['SeqSelfAttention'] = SeqSelfAttention
+NCN.custom_objects['SeqSelfAttention'] = SeqSelfAttention
 
 if __name__ == "__main__":
     print("Hello world")

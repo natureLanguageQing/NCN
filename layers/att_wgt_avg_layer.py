@@ -1,11 +1,13 @@
 # encoding: utf-8
 
-# author: nlqing
-# contact: ygq624576166@163.com
+# author: AlexWang
+# contact: ialexwwang@gmail.com
 
 # file: attention_weighted_average.py
 # time: 2019-06-24 19:35
 
+import NCN
+import tensorflow as tf
 from tensorflow.python import keras
 from tensorflow.python.keras import backend as K
 
@@ -15,11 +17,10 @@ InputSpec = L.InputSpec
 
 
 class AttentionWeightedAverageLayer(L.Layer):
-    """
-    计算跨时间步长的不同通道的加权平均值。使用1个参数pr. channel计算单个时间步长的注意值。
+    '''
     Computes a weighted average of the different channels across timesteps.
     Uses 1 parameter pr. channel to compute the attention value for a single timestep.
-    """
+    '''
 
     def __init__(self, return_attention=False, **kwargs):
         self.init = initializers.get('uniform')
@@ -84,9 +85,9 @@ class AttentionWeightedAverageLayer(L.Layer):
 AttentionWeightedAverage = AttentionWeightedAverageLayer
 AttWgtAvgLayer = AttentionWeightedAverageLayer
 
-custom_objects['AttentionWeightedAverageLayer'] = AttentionWeightedAverageLayer
-custom_objects['AttentionWeightedAverage'] = AttentionWeightedAverage
-custom_objects['AttWgtAvgLayer'] = AttWgtAvgLayer
+NCN.custom_objects['AttentionWeightedAverageLayer'] = AttentionWeightedAverageLayer
+NCN.custom_objects['AttentionWeightedAverage'] = AttentionWeightedAverage
+NCN.custom_objects['AttWgtAvgLayer'] = AttWgtAvgLayer
 
 if __name__ == '__main__':
     print('Hello world, AttentionWeightedAverageLayer/AttWgtAvgLayer.')

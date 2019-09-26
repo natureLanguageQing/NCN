@@ -1,20 +1,23 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
 
+
 # file: base_embedding.py
+# time: 2019-05-20 17:40
 
 import json
-import logging
 import pydoc
+import logging
 from typing import Union, List, Optional, Dict
 
 import numpy as np
 from tensorflow import keras
 
-from processors import ClassificationProcessor, LabelingProcessor
-from processors.base_processor import BaseProcessor
+import NCN
+from NCN.processors import ClassificationProcessor, LabelingProcessor
+from NCN.processors.base_processor import BaseProcessor
 
 L = keras.layers
 
@@ -49,7 +52,7 @@ class Embedding(object):
 
         embed_model_json_str = json.dumps(config_dict['embed_model'])
         instance.embed_model = keras.models.model_from_json(embed_model_json_str,
-                                                            custom_objects=custom_objects)
+                                                            custom_objects=NCN.custom_objects)
 
         # Load Weights from model
         for layer in instance.embed_model.layers:
@@ -66,9 +69,9 @@ class Embedding(object):
         self.embedding_size = embedding_size
 
         if processor is None:
-            if task == CLASSIFICATION:
+            if task == NCN.CLASSIFICATION:
                 self.processor = ClassificationProcessor()
-            elif task == LABELING:
+            elif task == NCN.LABELING:
                 self.processor = LabelingProcessor()
             else:
                 raise ValueError()

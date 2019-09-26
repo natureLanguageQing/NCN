@@ -1,18 +1,29 @@
 # encoding: utf-8
-import json
+"""
+@author: NLQing
+@contact: ygq624576166@163.com
+
+
+@version: 1.0
+@license: Apache Licence
+@file: helpers.py
+@time: 2019-05-17 11:37
+
+"""
 import os
-import pathlib
+import json
+import time
 import pydoc
 import random
-import time
-from typing import List, Optional, Dict
-
+import pathlib
 import tensorflow as tf
 from tensorflow.python import keras, saved_model
 
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
-from tasks.base_model import BaseModel
+from NCN import custom_objects
+from NCN.tasks.base_model import BaseModel
+from NCN.processors.base_processor import BaseProcessor
+from NCN.embeddings.base_embedding import Embedding
+from typing import List, Optional, Dict
 
 
 def unison_shuffled_copies(a, b):
@@ -118,8 +129,8 @@ def convert_to_saved_model(model: BaseModel,
 
 
 if __name__ == "__main__":
-    path = '/Users/nlqing/Desktop/python/NCN/tests/classification/saved_models/' \
-           'tasks.classification.models/BiLSTM_Model'
+    path = '/Users/brikerman/Desktop/python/NCN/tests/classification/saved_models/' \
+           'NCN.tasks.classification.models/BiLSTM_Model'
     p = load_processor(path)
     print(p.process_x_dataset([list('语言模型')]))
     print(p.label2idx)

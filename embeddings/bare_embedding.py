@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: bare_embedding.py
 # time: 2019-05-20 10:36
@@ -11,14 +11,15 @@ from typing import Union, Optional
 
 from tensorflow import keras
 
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
+from NCN.embeddings.base_embedding import Embedding
+from NCN.processors.base_processor import BaseProcessor
 
 L = keras.layers
 
 
 # Todo: A better name for this class
 class BareEmbedding(Embedding):
+
     """Embedding layer without pre-training, train embedding layer while training model"""
 
     def __init__(self,

@@ -1,25 +1,27 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-#
+
 
 # file: base_model.py
 # time: 2019-05-22 11:21
 
 
-import json
-import logging
-import os
-import pathlib
 from typing import Dict, Any, List, Optional, Union, Tuple
 
-import numpy as np
+import os
+import json
+import pathlib
+import logging
 import tensorflow as tf
+import numpy as np
+from keras_radam.training import RAdamOptimizer
 from tensorflow import keras
+from NCN import utils
+from NCN.embeddings import BareEmbedding
+from NCN.embeddings.base_embedding import Embedding
 
-from embeddings import BareEmbedding
-from embeddings.base_embedding import Embedding
 
 L = keras.layers
 
@@ -156,6 +158,7 @@ class BaseModel(object):
         if self.tf_model is None:
             with utils.custom_object_scope():
                 self.build_model_arc()
+                # 构建多显卡计算能力
                 self.tf_model = tf.keras.utils.multi_gpu_model(self.tf_model,
                                                                gpus,
                                                                cpu_merge=cpu_merge,
@@ -192,7 +195,8 @@ class BaseModel(object):
             with utils.custom_object_scope():
                 self.build_model_arc()
                 self.tf_model = tf.contrib.tpu.keras_to_tpu_model(self.tf_model, strategy=strategy)
-                self.compile_model(optimizer=tf.train.AdamOptimizer())
+                # self.compile_model(optimizer=tf.train.AdamOptimizer())
+                self.compile_model(optimizer=RAdamOptimizer())
 
     def get_data_generator(self,
                            x_data,
@@ -447,8 +451,8 @@ class BaseModel(object):
 
 
 if __name__ == "__main__":
-    from tasks.labeling import CNN_LSTM_Model
-    from corpus import ChineseDailyNerCorpus
+    from NCN.tasks.labeling import CNN_LSTM_Model
+    from NCN.corpus import ChineseDailyNerCorpus
 
     train_x, train_y = ChineseDailyNerCorpus.load_data('valid')
 

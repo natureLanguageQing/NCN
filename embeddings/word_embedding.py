@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-# author: nlqing
+# author: NLQing
 # contact: ygq624576166@163.com
-# 词向量嵌入模型
+
 
 # file: w2v_embedding.py
 # time: 2019-05-20 17:32
@@ -14,8 +14,8 @@ import numpy as np
 from gensim.models import KeyedVectors
 from tensorflow import keras
 
-from embeddings.base_embedding import Embedding
-from processors.base_processor import BaseProcessor
+from NCN.embeddings.base_embedding import Embedding
+from NCN.processors.base_processor import BaseProcessor
 
 L = keras.layers
 
